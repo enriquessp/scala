@@ -39,7 +39,14 @@ object Main extends App {
   println()
 
   println("CLASS HIERARCHIES")
-  println()
-  println()
+  println(new Level1)
+  println(MyObject.method1(3))
+
+  println("TYPE PARAMETERS")
+  println(new MyGenericClass[Int](3))
+  println(new MyGenericClass(3)) // Type is being inferred
+  def myFct1[T <: TopLevel](arg: T): T = { return arg }// T must derive from TopLevel or be TopLevel
+  def myFct2[T >: Level1](arg: T): T = { return arg } // T must be a supertype of Level1
+  def myFct3[T >: Level1 <: TopLevel ](arg: T): T = { return arg }
 
 }

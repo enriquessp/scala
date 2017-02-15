@@ -78,5 +78,11 @@ object CheatSheet {
     def method1(x: Int): Int = x / x
   }
 
-  
+  ///////////////////////////////////
+  // Type parameters (like Generics)
+  ///////////////////////////////////
+  class MyGenericClass[T](arg1: T) {
+
+  }
+
 }
