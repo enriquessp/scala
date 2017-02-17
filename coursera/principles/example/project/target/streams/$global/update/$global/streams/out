@@ -1,4 +1,4 @@
-[0m[[0minfo[0m] [0mUpdating {file:/home/enrique/IdeaProjects/scala-projects/scala/coursera/principles/example/project/}example-build...[0m
+[0m[[0minfo[0m] [0mUpdating {file:/Users/enrique/IdeaProjects/scala/coursera/principles/example/project/}example-build...[0m
 [0m[[0mdebug[0m] [0m:: resolving dependencies :: default#example-build;0.1-SNAPSHOT[0m
 [0m[[0mdebug[0m] [0m	confs: [compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool][0m
 [0m[[0mdebug[0m] [0m	validate = true[0m
@@ -2817,19 +2817,19 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-sbt#apply-macro;0.13.9!apply-macro.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#jline;2.10.5!jline.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar[0m
-[0m[[0mdebug[0m] [0m:: resolution report :: resolve 1741ms :: artifacts dl 45ms[0m
-[0m[[0mdebug[0m] [0m	report for default#example-build;0.1-SNAPSHOT compile produced in /home/enrique/IdeaProjects/scala-projects/scala/coursera/principles/example/project/target/resolution-cache/reports/default-example-build-compile.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#example-build;0.1-SNAPSHOT runtime produced in /home/enrique/IdeaProjects/scala-projects/scala/coursera/principles/example/project/target/resolution-cache/reports/default-example-build-runtime.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#example-build;0.1-SNAPSHOT test produced in /home/enrique/IdeaProjects/scala-projects/scala/coursera/principles/example/project/target/resolution-cache/reports/default-example-build-test.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#example-build;0.1-SNAPSHOT provided produced in /home/enrique/IdeaProjects/scala-projects/scala/coursera/principles/example/project/target/resolution-cache/reports/default-example-build-provided.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#example-build;0.1-SNAPSHOT optional produced in /home/enrique/IdeaProjects/scala-projects/scala/coursera/principles/example/project/target/resolution-cache/reports/default-example-build-optional.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#example-build;0.1-SNAPSHOT compile-internal produced in /home/enrique/IdeaProjects/scala-projects/scala/coursera/principles/example/project/target/resolution-cache/reports/default-example-build-compile-internal.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#example-build;0.1-SNAPSHOT runtime-internal produced in /home/enrique/IdeaProjects/scala-projects/scala/coursera/principles/example/project/target/resolution-cache/reports/default-example-build-runtime-internal.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#example-build;0.1-SNAPSHOT test-internal produced in /home/enrique/IdeaProjects/scala-projects/scala/coursera/principles/example/project/target/resolution-cache/reports/default-example-build-test-internal.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#example-build;0.1-SNAPSHOT plugin produced in /home/enrique/IdeaProjects/scala-projects/scala/coursera/principles/example/project/target/resolution-cache/reports/default-example-build-plugin.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#example-build;0.1-SNAPSHOT sources produced in /home/enrique/IdeaProjects/scala-projects/scala/coursera/principles/example/project/target/resolution-cache/reports/default-example-build-sources.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#example-build;0.1-SNAPSHOT docs produced in /home/enrique/IdeaProjects/scala-projects/scala/coursera/principles/example/project/target/resolution-cache/reports/default-example-build-docs.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#example-build;0.1-SNAPSHOT pom produced in /home/enrique/IdeaProjects/scala-projects/scala/coursera/principles/example/project/target/resolution-cache/reports/default-example-build-pom.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#example-build;0.1-SNAPSHOT scala-tool produced in /home/enrique/IdeaProjects/scala-projects/scala/coursera/principles/example/project/target/resolution-cache/reports/default-example-build-scala-tool.xml[0m
-[0m[[0mdebug[0m] [0m	resolve done (1741ms resolve - 45ms download)[0m
+[0m[[0mdebug[0m] [0m:: resolution report :: resolve 2425ms :: artifacts dl 90ms[0m
+[0m[[0mdebug[0m] [0m	report for default#example-build;0.1-SNAPSHOT compile produced in /Users/enrique/IdeaProjects/scala/coursera/principles/example/project/target/resolution-cache/reports/default-example-build-compile.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#example-build;0.1-SNAPSHOT runtime produced in /Users/enrique/IdeaProjects/scala/coursera/principles/example/project/target/resolution-cache/reports/default-example-build-runtime.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#example-build;0.1-SNAPSHOT test produced in /Users/enrique/IdeaProjects/scala/coursera/principles/example/project/target/resolution-cache/reports/default-example-build-test.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#example-build;0.1-SNAPSHOT provided produced in /Users/enrique/IdeaProjects/scala/coursera/principles/example/project/target/resolution-cache/reports/default-example-build-provided.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#example-build;0.1-SNAPSHOT optional produced in /Users/enrique/IdeaProjects/scala/coursera/principles/example/project/target/resolution-cache/reports/default-example-build-optional.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#example-build;0.1-SNAPSHOT compile-internal produced in /Users/enrique/IdeaProjects/scala/coursera/principles/example/project/target/resolution-cache/reports/default-example-build-compile-internal.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#example-build;0.1-SNAPSHOT runtime-internal produced in /Users/enrique/IdeaProjects/scala/coursera/principles/example/project/target/resolution-cache/reports/default-example-build-runtime-internal.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#example-build;0.1-SNAPSHOT test-internal produced in /Users/enrique/IdeaProjects/scala/coursera/principles/example/project/target/resolution-cache/reports/default-example-build-test-internal.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#example-build;0.1-SNAPSHOT plugin produced in /Users/enrique/IdeaProjects/scala/coursera/principles/example/project/target/resolution-cache/reports/default-example-build-plugin.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#example-build;0.1-SNAPSHOT sources produced in /Users/enrique/IdeaProjects/scala/coursera/principles/example/project/target/resolution-cache/reports/default-example-build-sources.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#example-build;0.1-SNAPSHOT docs produced in /Users/enrique/IdeaProjects/scala/coursera/principles/example/project/target/resolution-cache/reports/default-example-build-docs.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#example-build;0.1-SNAPSHOT pom produced in /Users/enrique/IdeaProjects/scala/coursera/principles/example/project/target/resolution-cache/reports/default-example-build-pom.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#example-build;0.1-SNAPSHOT scala-tool produced in /Users/enrique/IdeaProjects/scala/coursera/principles/example/project/target/resolution-cache/reports/default-example-build-scala-tool.xml[0m
+[0m[[0mdebug[0m] [0m	resolve done (2425ms resolve - 90ms download)[0m
 [0m[[0minfo[0m] [0mDone updating.[0m
