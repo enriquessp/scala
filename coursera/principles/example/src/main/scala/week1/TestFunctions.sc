@@ -93,4 +93,18 @@ object test {
   }
 
   factorialTail(4)
+
+  def sum(f: Int => Int, a: Int, b: Int): Int = {
+    def sumF(a: Int, b: Int): Int =
+      if (a > b) 1
+      else f(a) + sumF(a + 1, b)
+
+    sumF(a, b)
+  }
+
+  def sumInts(a: Int, b: Int): Int = sum(x => x, a, b)
+  def sumCubes(a: Int, b: Int): Int = sum(x => x * x, a, b)
+  def sumFactorials(a: Int, b: Int): Int = sum(factorial, a, b)
+
+  sumInts(1, 4)
 }
