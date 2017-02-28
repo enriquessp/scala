@@ -41,7 +41,7 @@ abstract class TweetSet {
    * Question: Can we implment this method here, or should it remain abstract
    * and be implemented in the subclasses?
    */
-    def filter(p: Tweet => Boolean): TweetSet = filterAcc(p, Empty)
+    def filter(p: Tweet => Boolean): TweetSet = filterAcc(p, new Empty)
 
   /**
    * This is a helper method for `filter` that propagetes the accumulated tweets.
@@ -106,7 +106,7 @@ abstract class TweetSet {
   def foreach(f: Tweet => Unit): Unit
 }
 
-object Empty extends TweetSet {
+class Empty extends TweetSet {
     def filterAcc(p: Tweet => Boolean, acc: TweetSet): TweetSet = acc
 
   /**
@@ -115,7 +115,7 @@ object Empty extends TweetSet {
 
   def contains(tweet: Tweet): Boolean = false
 
-  def incl(tweet: Tweet): TweetSet = new NonEmpty(tweet, Empty, Empty)
+  def incl(tweet: Tweet): TweetSet = new NonEmpty(tweet, new Empty, new Empty)
 
   def remove(tweet: Tweet): TweetSet = this
 
@@ -133,7 +133,7 @@ object Empty extends TweetSet {
 class NonEmpty(elem: Tweet, left: TweetSet, right: TweetSet) extends TweetSet {
 
     def filterAcc(p: Tweet => Boolean, acc: TweetSet): TweetSet = {
-      if (right == Empty && left == Empty) {
+      if (right.toString == "." && left.toString == ".") {
         if (p(elem)) acc.incl(elem)
         else acc
       } else if (p(elem)) {
@@ -172,10 +172,10 @@ class NonEmpty(elem: Tweet, left: TweetSet, right: TweetSet) extends TweetSet {
   override def union(that: TweetSet): TweetSet = ((left union right) union that) incl elem
 
   override def mostRetweeted: Tweet = {
-    if (Empty == left && Empty == right) elem
-    else if (Empty != left  && Empty != right && elem.retweets > left.mostRetweeted.retweets && elem.retweets > right.mostRetweeted.retweets) elem
-    else if (Empty != right && elem.retweets < right.mostRetweeted.retweets) right.mostRetweeted
-    else if (Empty != left && elem.retweets < left.mostRetweeted.retweets) left.mostRetweeted
+    if ("." == left.toString && "." == right.toString) elem
+    else if ("." != left.toString  && "." != right.toString && elem.retweets > left.mostRetweeted.retweets && elem.retweets > right.mostRetweeted.retweets) elem
+    else if ("." != right.toString && elem.retweets < right.mostRetweeted.retweets) right.mostRetweeted
+    else if ("." != left.toString && elem.retweets < left.mostRetweeted.retweets) left.mostRetweeted
     else elem
   }
 
@@ -192,7 +192,7 @@ class NonEmpty(elem: Tweet, left: TweetSet, right: TweetSet) extends TweetSet {
     */
   override def descendingByRetweet: TweetList = {
     def loop(tset: TweetSet): TweetList = {
-      if (Empty == tset) Nil
+      if ("." == tset.toString) Nil
       else new Cons(tset.mostRetweeted, loop(tset.remove(tset.mostRetweeted)))
     }
     new Cons(mostRetweeted, loop(remove(mostRetweeted)))
@@ -244,29 +244,29 @@ object GoogleVsApple {
 
 object Main extends App {
   // Print the trending tweets
-//  GoogleVsApple.trending foreach println
+  GoogleVsApple.trending foreach println
 
-  val t1 = new Tweet("clara",   "cats are amazing",  25)
-  val t2 = new Tweet("enrique", "scala is great",   200)
-  val t3 = new Tweet("enrique", "I love go swimming", 50)
-
-  val t0set = Empty
-  val t1set = t0set.incl(t1)
-  val t2set = t1set.incl(t2)
-  val t3set = t2set.incl(t3)
-
-  val enriqueFilter: Tweet => Boolean = x => "enrique" == x.user
-  val claraFilter: Tweet => Boolean = x => "clara" == x.user
-  val catsFilter: Tweet => Boolean = x => x.text.contains("cats")
-
-  println(t3set)
-  println(t3set filter enriqueFilter)
-  println(t3set filter claraFilter)
-  println(t3set filter catsFilter)
-  println(t3set mostRetweeted)
-  println(t3set descendingByRetweet)
-
-  println(":::::::::: Tweets :::::::::::")
+//  val t1 = new Tweet("clara",   "cats are amazing",  25)
+//  val t2 = new Tweet("enrique", "scala is great",   200)
+//  val t3 = new Tweet("enrique", "I love go swimming", 50)
+//
+//  val t0set = Empty
+//  val t1set = t0set.incl(t1)
+//  val t2set = t1set.incl(t2)
+//  val t3set = t2set.incl(t3)
+//
+//  val enriqueFilter: Tweet => Boolean = x => "enrique" == x.user
+//  val claraFilter: Tweet => Boolean = x => "clara" == x.user
+//  val catsFilter: Tweet => Boolean = x => x.text.contains("cats")
+//
+//  println(t3set)
+//  println(t3set filter enriqueFilter)
+//  println(t3set filter claraFilter)
+//  println(t3set filter catsFilter)
+//  println(t3set mostRetweeted)
+//  println(t3set descendingByRetweet)
+//
+//  println(":::::::::: Tweets :::::::::::")
 //  println(GoogleVsApple.appleTweets)
 //  println(GoogleVsApple.appleTweets)
 
