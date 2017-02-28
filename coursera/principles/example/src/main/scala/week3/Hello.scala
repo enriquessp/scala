@@ -11,4 +11,9 @@ object Hello {
     val t2 = t1 incl 5
     println(t2)
 
+  def singleton[T](elem: T) = new Cons[T](elem, new Nil[T])
+  println(singleton[Int](1) head)
+  println(singleton[Boolean](true) head)
+
+
 }
