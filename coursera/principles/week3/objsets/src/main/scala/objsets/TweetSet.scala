@@ -228,15 +228,19 @@ object GoogleVsApple {
   val google = List("android", "Android", "galaxy", "Galaxy", "nexus", "Nexus")
   val apple = List("ios", "iOS", "iphone", "iPhone", "ipad", "iPad")
 
-    lazy val googleTweets: TweetSet = ???
-  lazy val appleTweets: TweetSet = ???
+  val googleTweetFilter: Tweet => Boolean = t => !google.filter(s => t.text.contains(s)).isEmpty
+  val appleTweetFilter: Tweet => Boolean = t => !apple.filter(s => t.text.contains(s)).isEmpty
+
+  lazy val googleTweets: TweetSet = TweetReader.allTweets.filter(googleTweetFilter)
+  lazy val appleTweets: TweetSet = TweetReader.allTweets.filter(appleTweetFilter)
 
   /**
    * A list of all tweets mentioning a keyword from either apple or google,
    * sorted by the number of retweets.
    */
-     lazy val trending: TweetList = ???
-  }
+  val appleAndGoogleTweetFilter: Tweet => Boolean = t => !apple.filter(s => t.text.contains(s)).isEmpty || !google.filter(s => t.text.contains(s)).isEmpty
+  lazy val trending: TweetList = TweetReader.allTweets.filter(appleAndGoogleTweetFilter).descendingByRetweet
+}
 
 object Main extends App {
   // Print the trending tweets
@@ -261,5 +265,9 @@ object Main extends App {
   println(t3set filter catsFilter)
   println(t3set mostRetweeted)
   println(t3set descendingByRetweet)
+
+  println(":::::::::: Tweets :::::::::::")
+//  println(GoogleVsApple.appleTweets)
+//  println(GoogleVsApple.appleTweets)
 
 }
