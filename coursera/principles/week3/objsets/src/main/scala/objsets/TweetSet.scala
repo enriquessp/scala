@@ -170,13 +170,10 @@ class NonEmpty(elem: Tweet, left: TweetSet, right: TweetSet) extends TweetSet {
   override def union(that: TweetSet): TweetSet = ((left union right) union that) incl elem
 
   override def mostRetweeted: Tweet = {
-    if (elem.retweets > left.mostRetweeted.retweets && elem.retweets > right.mostRetweeted.retweets) {
-      elem
-    } else if (elem.retweets < left.mostRetweeted.retweets) {
-      left.mostRetweeted
-    } else {
-      right.mostRetweeted
-    }
+    if (Empty == left && Empty == right) elem
+    else if (elem.retweets > left.mostRetweeted.retweets && elem.retweets > right.mostRetweeted.retweets) elem
+    else if (elem.retweets < right.mostRetweeted.retweets) right.mostRetweeted
+    else left.mostRetweeted
   }
 
   override def toString = s"{$left ${elem.text} $right}"
@@ -239,5 +236,6 @@ object Main extends App {
   println(t3set filter enriqueFilter)
   println(t3set filter claraFilter)
   println(t3set filter catsFilter)
+  println(t3set mostRetweeted)
 
 }
