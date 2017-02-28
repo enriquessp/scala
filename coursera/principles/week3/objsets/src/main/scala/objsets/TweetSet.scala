@@ -76,7 +76,7 @@ abstract class TweetSet {
    * Question: Should we implment this method here, or should it remain abstract
    * and be implemented in the subclasses?
    */
-    def descendingByRetweet: TweetList = ???
+    def descendingByRetweet: TweetList
 
   /**
    * The following methods are already implemented
@@ -126,6 +126,8 @@ object Empty extends TweetSet {
   override def mostRetweeted: Tweet = throw new NoSuchElementException
 
   override def toString: String = "."
+
+  override def descendingByRetweet: TweetList = Nil
 }
 
 class NonEmpty(elem: Tweet, left: TweetSet, right: TweetSet) extends TweetSet {
@@ -171,12 +173,30 @@ class NonEmpty(elem: Tweet, left: TweetSet, right: TweetSet) extends TweetSet {
 
   override def mostRetweeted: Tweet = {
     if (Empty == left && Empty == right) elem
-    else if (elem.retweets > left.mostRetweeted.retweets && elem.retweets > right.mostRetweeted.retweets) elem
-    else if (elem.retweets < right.mostRetweeted.retweets) right.mostRetweeted
-    else left.mostRetweeted
+    else if (Empty != left  && Empty != right && elem.retweets > left.mostRetweeted.retweets && elem.retweets > right.mostRetweeted.retweets) elem
+    else if (Empty != right && elem.retweets < right.mostRetweeted.retweets) right.mostRetweeted
+    else if (Empty != left && elem.retweets < left.mostRetweeted.retweets) left.mostRetweeted
+    else elem
   }
 
   override def toString = s"{$left ${elem.text} $right}"
+
+  /**
+    * Returns a list containing all tweets of this set, sorted by retweet count
+    * in descending order. In other words, the head of the resulting list should
+    * have the highest retweet count.
+    *
+    * Hint: the method `remove` on TweetSet will be very useful.
+    * Question: Should we implment this method here, or should it remain abstract
+    * and be implemented in the subclasses?
+    */
+  override def descendingByRetweet: TweetList = {
+    def loop(tset: TweetSet): TweetList = {
+      if (Empty == tset) Nil
+      else new Cons(tset.mostRetweeted, loop(tset.remove(tset.mostRetweeted)))
+    }
+    new Cons(mostRetweeted, loop(remove(mostRetweeted)))
+  }
 }
 
 trait TweetList {
@@ -188,6 +208,9 @@ trait TweetList {
       f(head)
       tail.foreach(f)
     }
+  override def toString: String =
+    if (Nil != this) s"{${head.text}-$tail}"
+    else "."
 }
 
 object Nil extends TweetList {
@@ -237,5 +260,6 @@ object Main extends App {
   println(t3set filter claraFilter)
   println(t3set filter catsFilter)
   println(t3set mostRetweeted)
+  println(t3set descendingByRetweet)
 
 }
